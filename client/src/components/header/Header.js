@@ -1,10 +1,9 @@
 import React from 'react'
-import style from "./Header.module.css";
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <div className={style.div}>
-        <h1>Header</h1>
+    <div>
     </div>
   )
 }
