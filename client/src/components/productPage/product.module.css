@@ -2,43 +2,123 @@ body{
     background-color: rgb(240, 240, 240);
 }
 
-#ImageBox{
-    box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
-    outline: rgb(36, 38, 37) none 0px;
-    box-sizing: border-box;
-}
 
 #containerInfoBox{
     background-color: rgb(240, 240, 240);
+    margin-bottom: 0px;
+    max-height: 35rem;
+}
+
+
+
+#ImageBox{
+    box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
+    outline: rgb(36, 38, 37) none 0px;
 }
 
 #InfoBox{
-    float: right; 
     box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
     outline: rgb(36, 38, 37) none 0px;
     box-sizing: border-box;
+    position: relative;
+}
+
+@media screen and (min-width:1200px) {
+    #InfoBox{
+        width: calc(100% - 25px);
+    }
+    #freeShippingBox > h3, span{
+        margin-right: 3rem;
+        width: 11rem;
+
+     }
+}
+
+@media screen and (max-width:1200px) {
+    #containerInfoBox{
+        max-height: 100%;
+        max-width: 100%;
+    }
+    #freeShippingBox > h3, span{
+        margin-left: auto ;
+        margin-right: auto ;
+        max-width: 20rem;
+        width: 100%;
+    }
+}
+
+#freeShippingBox{
+    display: flex;
+    justify-content: end;
+ 
+
+}
+#freeShippingBox > h3, span{
     
 }
 
-#title{
-
+#category{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+    position: absolute;
+    bottom: 8rem;
+    right: 0px;
+    left:0px;
 }
 
-#prices{
-    margin: 50px  0 150px 25px;
+#price{
+    margin: 1rem 0 1rem 0;
 }
 
-#addCartButton{
-    width: 100%px;
+#price {
+    margin: 1rem 0 1rem 0;
+    position: absolute;
+    bottom: 4.5rem;
+    right: 0px;
+    left:0px;
 }
+
+
+.detailBox{
+
+  
+}
+.detailBox > button{
+    position: absolute;
+    bottom:1.5rem;
+    right: 0px;
+    left:0px;
+    margin-left: auto; 
+    margin-right: auto; 
+    width: calc(100% - 3rem);
+    
+}   
+
+.detailBox > button:hover{
+    background-color: #000000;
+}
+
 
 #descriptionBox{
-margin-bottom: 100px; 
-box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
-outline: rgb(36, 38, 37) none 0px;
-box-sizing: border-box;
-padding: 50px;
+    margin-bottom: 100px; 
+    box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
+    outline: rgb(36, 38, 37) none 0px;
+    box-sizing: border-box;
+    padding: 50px;
+}
 
+#shortDescriptionBox{
 
+   margin-bottom: 12rem;
 
+}
+
+#commentsBox{
+    margin-bottom: 100px; 
+    box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
+    outline: rgb(36, 38, 37) none 0px;
+    box-sizing: border-box;
+    padding: 50px;
+    height: 500px;
 }
