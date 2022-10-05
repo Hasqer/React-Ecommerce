@@ -14,11 +14,31 @@ body{
 
 #InfoBox{
     float: right; 
-    width:95%; 
     box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
-    outline: rgb(36, 38, 37) none 0px; box-sizing: border-box;
+    outline: rgb(36, 38, 37) none 0px;
+    box-sizing: border-box;
+    
 }
 
 #title{
-    
+
+}
+
+#prices{
+    margin: 50px  0 150px 25px;
+}
+
+#addCartButton{
+    width: 100%px;
+}
+
+#descriptionBox{
+margin-bottom: 100px; 
+box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
+outline: rgb(36, 38, 37) none 0px;
+box-sizing: border-box;
+padding: 50px;
+
+
+
 }
