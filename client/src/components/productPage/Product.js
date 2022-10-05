@@ -4,15 +4,6 @@ import style from "./product.module.css";
 export default function Product() {
   return (
   <>
-  <br></br>
-  <br></br>
-  <br></br>
-
-  <br></br>
-  <br></br>
-  <br></br><br></br>
-  <br></br>
-  <br></br>
     <div className="container-xxl mt-2 w-100">
       <div className="row justify-content-between">
             <div id={style.ImageBox} className="col-xxl-5 border border-light bg-white rounded">
@@ -51,7 +42,7 @@ export default function Product() {
                   <div id={style.price} className="mx-4 my-5">
                     <h2>1150 TL</h2>
                   </div>
-                  <div id={style.addCartButton} className="mx-4 my-5 ">
+                  <div id={style.addCartButton} className="mx-4 my-5">
                     <button type="button" className="btn btn-primary btn-lg btn-block w-100">Sepete Ekle</button>
                   </div>
                 </div>
@@ -62,7 +53,6 @@ export default function Product() {
 
  
 
-      
         <div id={style.descriptionBox} className="container-xxl mt-4 border border-light bg-white rounded h-100 w-100">
 
                 <p>
@@ -104,19 +94,7 @@ export default function Product() {
   detaylarıyla da konforlu bir kulaklık arayanlar için ideal bir model olarak öne çıkıyor.
                 </p>
           </div>
-          
-          </div>
- 
-    
+        </div>   
   </>
   ) 
 }
-
-/*
-
-     <div classNameName="container-xl rounded bg-primary float-none">
-     <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80" classNameName={style.images + " image fluid"} alt="test"></img>
-
-      </div>
-      <img Style="height:700px;object-fit: cover; " className="w-100 m-4 mx-auto d-block" src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGVuc3xlbnwwfHwwfHw%3D&w=1000&q=80" alt=""></img>
-*/
