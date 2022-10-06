@@ -10,6 +10,12 @@
     background-color: green;
 }
 
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* 
     292d36
     fc5f40

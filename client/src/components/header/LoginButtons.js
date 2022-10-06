@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./navbar.module.css"
 import { useSelector,useDispatch } from 'react-redux'
 import { setLogin } from '../../redux/slices/login'
+import LoginPopup from './LoginPopup'
 
 export function BtnForLogin() {
+    const [popup,setPopup] = useState(false);
     const dis = useDispatch();
     return (
     <div className='d-flex'>
-        <div className={style.singBtn+" "+style.registerBtn}>Kayıt ol</div>
+        {popup && <LoginPopup popup={setPopup}/>}
+        <div className={style.singBtn+" "+style.registerBtn} onClick={()=>setPopup(true)}>Kayıt ol</div>
         <div className={style.singBtn+" "+style.loginBtn} onClick={()=>dis(setLogin(true))}>Giriş</div>
     </div>
   )
