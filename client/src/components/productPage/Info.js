@@ -9,7 +9,7 @@ export default function Info() {
           <h5>Anker Soundcore Life Q10 Kablosuz Bluetooth 5.0 Kulaklık - 60 Saate Varan Çalma Süresi - Siyah Kırmızı - A3032</h5>
         </div>
         <div id={style.freeShippingBox}>
-          <h3><span class="badge bg-color2 text-wrap">250 TL Üzeri Kargo Bedava</span ></h3>
+          <h3><span className="badge bg-color2 text-wrap">250 TL Üzeri Kargo Bedava</span ></h3>
         </div>
         <div id={style.shortDescriptionBox} className="mx-4">
           <p className='text-wrap'>
@@ -17,7 +17,7 @@ Orta segment kulaklık modelleri içerisinden sunduğu üst düzey ses performan
         </div>
         <div id={style.category} className="mx-4 d-flex justify-content-start ">
           <h5>Kategori :</h5>
-          <h5 Style="margin-left:1rem;">Teknoloji</h5>
+          <h5 style={{marginLeft: "1rem"}}>Teknoloji</h5>
         </div>
         <div id={style.price} className="mx-4 d-flex ">
           <h1>1150</h1> <h1>,00  TL</h1>
