@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 const bodyParser = require("body-parser");
+const path = require("path")
 
 app.listen(80);
 app.use(bodyParser.json())
@@ -9,7 +10,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 app.get("/",(req,res)=>{
-    res.sendFile(__dirname+"\\index.html");
+    res.sendFile(path.join(__dirname,"..\\client\\build\\index.html"));
 })
 
 app.post('/register', function(request, response){
