@@ -6,7 +6,7 @@ import Comments from './Comments';
 
 export default function Product() {
   return(
-    <div className='container-xxl'>
+    <div className='container-xl'>
       <div className='row'>
         <ProductImg></ProductImg>
         <Info></Info>
