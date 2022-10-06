@@ -1,7 +1,17 @@
 import React from 'react'
 import Navbar from './Navbar'
+import axios from "axios";
+import { BtnForLogin,BtnForUser } from './LoginButtons';
+import { useSelector } from 'react-redux'
 
 export default function Header() {
+
+  const loginInfo = useSelector(state => state.login.value);
+  const getUser = ()=>{
+    axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    .then(res => console.log(res.data));
+  }
+
   return (
     <div>
 
@@ -11,9 +21,7 @@ export default function Header() {
             <span className='border-end pe-3 me-3 border-info'>hakkımızda</span>
             <span>redes@redes.com</span>
           </div>
-          <div>
-            Giriş yap / Kayıt ol
-          </div>
+          { loginInfo ? <BtnForUser/>:<BtnForLogin/>}
         </div>
       </div>
 

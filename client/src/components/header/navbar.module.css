@@ -1,3 +1,47 @@
 .bar{
     transform: translate(0,-50%);
 }
+
+.singBtn{
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: silver;
+    transition: 0.3s;
+    margin: 0px 5px;
+    border-radius: 4px;
+}
+
+.registerBtn{
+    border: 1px solid rgba(192, 192, 192, 0.7);
+}
+
+.registerBtn:hover{
+    border: 1px solid white;
+}
+
+.loginBtn{
+    border:1px solid rgba(192, 192, 192, 0.3);
+}
+
+.loginBtn:hover{
+    border:1px solid rgba(192, 192, 192, 0.5);
+}
+
+.singBtn:hover{
+    color: white;
+}
+
+.userInfoBox{
+    height: 35px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px solid rgba(192, 192, 192, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
