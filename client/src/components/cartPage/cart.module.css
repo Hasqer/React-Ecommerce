@@ -1,0 +1,14 @@
+.title{
+
+    color: white;
+    font-size: 100px;
+}
+
+#detailBox{
+    width: calc(100% - 3rem);
+    height: 550px;
+}
+
+#cartBox{
+    height: 200px;
+}
