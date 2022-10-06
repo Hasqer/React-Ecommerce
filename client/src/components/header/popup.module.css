@@ -1,0 +1,80 @@
+.popupContainer{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.popup{
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+}
+
+.input{
+    width: 100%;
+    margin: 10px 0px;
+    outline: none;
+    transition: 0.3s;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 1px solid wheat;
+    margin: 15px 0px;
+    animation-duration: 0.3s;
+}
+
+@keyframes lose {
+    0%{
+        opacity: 100%;
+    }
+    99%{
+        height: 0px;
+        opacity: 0%;
+    }
+    100%{
+        display: none;
+    }
+}
+
+.input:focus{
+    padding-left: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    /* box-shadow: 0px 0px 10px rgba(225, 225, 225, 0.4); */
+}
+
+.inputContainer{
+    box-shadow: inset 0px 0px 15px  #032539;
+}
+
+@media screen and (max-width:400px) {
+    .popup{
+        width: 100%;
+    }
+}
+
+.input2{
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+    margin: 15px 0px;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: #032539;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px black;
+}
+
+.input2:focus{
+    padding-left: 5px;
+    border-bottom: 1px solid black;
+}
+
+input::placeholder{
+    color: #032539;
+}
