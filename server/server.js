@@ -50,7 +50,7 @@ app.post('/login',(req,res)=>{
         const result2 = data.filter((item) => item.email === req.body.email && item.password === req.body.password );
         console.log(result2);
         if(result2!=""){
-            const result = data.filter((item) => item.email === req.body.email && item.name === req.body.name && item.surname === req.body.surname )[0];
+            const result = data.filter((item) => item.email === req.body.email )[0];
             delete result.password;
             res.end(JSON.stringify({status:true,result}));
         }
