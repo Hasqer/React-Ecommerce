@@ -20,15 +20,17 @@ app.post('/register', function(request, response){
         data=JSON.parse(data);
         const email=request.body.email;
         const password=request.body.password;
+        const name=request.body.name;
+        const surname=request.body.surname;
         x=Date.now();
-        console.log(email,password);
-        const resualt1 = data.filter((item) => item.email === request.body.email);
-        if(resualt1==""){
+        console.log(email,password,name,surname);
+        const result1 = data.filter((item) => item.email === request.body.email);
+        if(result1==""){
             if(password!="" && email!=""){
-                data.push({id:x,email:email,password:password});
+                data.push({id:x,email:email,password:password,name:name,surname:surname});
                 fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
-                    const resualt = data.filter((item) => item.email === request.body.email)[0];
-                    response.end(JSON.stringify({status:true,resualt}));
+                    const result = data.filter((item) => item.email === request.body.email)[0];
+                    response.end(JSON.stringify({status:true,result}));
                 })
             }
             else{
@@ -45,11 +47,12 @@ app.post('/register', function(request, response){
 app.post('/login',(req,res)=>{
     fs.readFile(__dirname+"/userdata.json",(error,data)=>{
         data=JSON.parse(data);
-        const resualt2 = data.filter((item) => item.email === req.body.email && item.password === req.body.password );
-        console.log(resualt2);
-        if(resualt2!=""){
-            const resualt = data.filter((item) => item.email === req.body.email && item.password === req.body.password )[0];
-            res.end(JSON.stringify({status:true,resualt}));
+        const result2 = data.filter((item) => item.email === req.body.email && item.password === req.body.password );
+        console.log(result2);
+        if(result2!=""){
+            const result = data.filter((item) => item.email === req.body.email && item.name === req.body.name && item.surname === req.body.surname )[0];
+            delete result.password;
+            res.end(JSON.stringify({status:true,result}));
         }
         else{
             res.end(JSON.stringify({status:false}));
