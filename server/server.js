@@ -7,9 +7,10 @@ const path = require("path")
 app.listen(80);
 app.use(bodyParser.json())
 app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname,"..\\client\\build")));
 app.use(express.json());
 
-app.get("/",(req,res)=>{
+app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"..\\client\\build\\index.html"));
 })
 
@@ -22,25 +23,20 @@ app.post('/register', function(request, response){
         x=Date.now();
         console.log(email,password);
         const resualt1 = data.filter((item) => item.email === request.body.email);
-        console.log(resualt1)
         if(resualt1==""){
             if(password!="" && email!=""){
-                if(email!="" && password!=""){
                 data.push({id:x,email:email,password:password});
                 fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
-                    console.log("veriler geldi");
-                    response.end(JSON.stringify({status:"basarili"}));
-                })}
-                else{
-                    response.end(JSON.stringify({status:"basarisiz"}));
-                }
+                    const resualt = data.filter((item) => item.email === request.body.email)[0];
+                    response.end(JSON.stringify({status:true,resualt}));
+                })
             }
             else{
-                response.end(JSON.stringify({status:"bos bırakılamaz"}));
+                response.end(JSON.stringify({status:false}));
             }
         }
         else{
-            response.end(JSON.stringify({status:"kullanıcı bulunmakta"}));
+            response.end(JSON.stringify({status:"unsucces"}));
         }
     })
   
@@ -52,10 +48,11 @@ app.post('/login',(req,res)=>{
         const resualt2 = data.filter((item) => item.email === req.body.email && item.password === req.body.password );
         console.log(resualt2);
         if(resualt2!=""){
-            res.end(JSON.stringify({status:"basarili"}));
+            const resualt = data.filter((item) => item.email === req.body.email && item.password === req.body.password )[0];
+            res.end(JSON.stringify({status:true,resualt}));
         }
         else{
-            res.end(JSON.stringify({status:"basarisiz"}));
+            res.end(JSON.stringify({status:false}));
         }
     })
 }) ;
