@@ -21,7 +21,7 @@ export function BtnForUser() {
   
     const userInfo = useSelector(state => state.userInfo.value)
     return (
-    <div className={style.userInfoBox} onClick={asd}>
+    <div className={style.userInfoBox}>
       {
         userInfo.name.slice(0,1).toUpperCase()+
         userInfo.name.slice(1).toLowerCase()+
