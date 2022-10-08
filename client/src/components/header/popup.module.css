@@ -6,6 +6,8 @@
     position: fixed;
     top: 0px;
     left: 0px;
+    animation-name: coming2;
+    animation-duration: 0.3s;
 }
 
 .popup{
@@ -15,6 +17,28 @@
     overflow: hidden;
     position: relative;
     transition: 0.3s;
+    animation-name: coming;
+    animation-duration: 0.3s;
+}
+
+@keyframes coming {
+    0%{
+        opacity: 0%;
+        transform: translate(0,-50%);
+    }
+    100%{
+        opacity: 100%;
+        transform: translate(0,0%);
+    }
+}
+
+@keyframes coming2 {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
 }
 
 .input{
@@ -48,9 +72,7 @@
     /* box-shadow: 0px 0px 10px rgba(225, 225, 225, 0.4); */
 }
 
-.inputContainer{
-    box-shadow: inset 0px 0px 15px  #032539;
-}
+
 
 @media screen and (max-width:400px) {
     .popup{
@@ -58,23 +80,3 @@
     }
 }
 
-.input2{
-    background-color: transparent;
-    outline: none;
-    transition: 0.3s;
-    margin: 15px 0px;
-    border: none;
-    border-bottom: 1px solid gray;
-    color: #032539;
-    font-weight: 600;
-    text-shadow: 1px 1px 1px black;
-}
-
-.input2:focus{
-    padding-left: 5px;
-    border-bottom: 1px solid black;
-}
-
-input::placeholder{
-    color: #032539;
-}
