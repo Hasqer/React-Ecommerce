@@ -11,8 +11,8 @@ export const productSlice = createSlice({
         value:[]
     },
     reducers:{
-        getProduct:(state)=>{
-            console.log("girdim")
+        getProduct:(state,data)=>{
+            state.value = data.payload;
             
         },
         

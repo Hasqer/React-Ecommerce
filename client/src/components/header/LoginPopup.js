@@ -31,10 +31,9 @@ export default function LoginPopup(props) {
           surname:res.data.result.surname,
         }));
         axios.post("/products")
-          .then(res =>{
-              console.log(res.data.data);
-              console.log(res.data);
-          })
+        .then(res =>{
+          dis(getProduct(res.data.data));
+        })
       }
       else{
         alert("E-posta yada şifre hatalı!");
@@ -57,7 +56,10 @@ export default function LoginPopup(props) {
           name:res.data.result.name,
           surname:res.data.result.surname,
         }));
-        dis(getProduct());
+        axios.post("/products")
+        .then(res =>{
+          dis(getProduct(res.data.data));
+        })
       }
       else if(res.data.status == "unsucces"){
         alert("bu kullanıcı var")
