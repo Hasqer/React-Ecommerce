@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux'
 
 export default function Header() {
 
+  
+
   const loginInfo = useSelector(state => state.login.value);
   const getUser = ()=>{
     axios.get('https://jsonplaceholder.typicode.com/todos/1')

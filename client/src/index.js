@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 import axios from "axios";
 
+
+
 axios.defaults.baseURL = "http://192.168.1.102";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,3 +19,6 @@ root.render(
         </BrowserRouter>
     </Provider>
 );
+
+
+
