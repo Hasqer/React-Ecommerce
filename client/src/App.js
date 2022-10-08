@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { getProduct } from "./redux/slices/products";
 import axios from "axios";
 import { useEffect } from "react";
-
+import './global.css';
 function App() {
   const dis = useDispatch();
   useEffect(()=>{
@@ -21,7 +21,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/content" element={<Content/>} />
-        <Route path="/" element={<Product/>} />
+        <Route path="/urunler/:id" element={<Product />} />
         <Route path="/sepetim" element={<Cart/>} />
       </Routes>
     </div>
