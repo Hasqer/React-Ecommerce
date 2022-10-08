@@ -59,4 +59,11 @@ app.post('/login',(req,res)=>{
         }
     })
 }) ;
+app.post('/products',(req,res)=>{
+    fs.readFile(__dirname+"/products.json",(error,data)=>{
+        data=JSON.parse(data);
+        res.end(JSON.stringify({data}));
+    })
+});
+
 
