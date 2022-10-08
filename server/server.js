@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path")
 
 app.listen(80);
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname,"..\\client\\build")));
 app.use(express.json());
@@ -89,4 +89,13 @@ app.post('/addcart',(req,res)=>{
 
 });
 
-
+app.post('/removecart',(req,res)=>{
+  fs.readFile(__dirname+"/userdata.json",(error,data)=>{
+    data = JSON.parse(data);
+        let result = data[0].cart.filter(({id}) => req.body.productId != id)
+        data[0].cart = result;
+        fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
+            res.end(JSON.stringify({data}))
+        });
+  })
+});
