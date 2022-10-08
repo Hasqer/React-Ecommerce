@@ -4,14 +4,14 @@ export const userInfo = createSlice({
     name:'userInfo',
     initialState:{
         value:{
-            name:"batuhan",
-            lastname:"ilter"
+            name:"",
+            surname:""
         }
     },
     reducers:{
         setUser:(state,newText)=>{
             state.value.name = newText.payload.name;
-            state.value.lastName = newText.payload.lastName;
+            state.value.surname = newText.payload.surname;
         }
     }
 })
