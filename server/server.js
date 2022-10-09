@@ -3,6 +3,7 @@ const fs = require("fs");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path")
+var cart=new Array()
 
 app.listen(80);
 app.use(bodyParser.json());
@@ -22,7 +23,7 @@ app.post('/register', function(request, response){
         const password=request.body.password;
         const name=request.body.name;
         const surname=request.body.surname;
-        var cart=new Array()
+
         x=Date.now();
         console.log(email,password,name,surname,cart);
         const result1 = data.filter((item) => item.email === request.body.email);
@@ -78,8 +79,12 @@ app.post('/addcart',(req,res)=>{
             data=JSON.parse(data);
             let users = data.filter((item) => item.id === req.body.userId);
             console.log(product);
-            users[0]['cart'].push(product[0]);
-    
+            const x=users[0].cart[0];
+            if(x===null)
+            users[0]['cart'][0] = product[0];
+            else{
+                users[0]['cart'].push(product[0]);
+            }
             fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
                 res.end(JSON.stringify({users}));
             })
@@ -92,10 +97,21 @@ app.post('/addcart',(req,res)=>{
 app.post('/removecart',(req,res)=>{
   fs.readFile(__dirname+"/userdata.json",(error,data)=>{
     data = JSON.parse(data);
-        let result = data[0].cart.filter(({id}) => req.body.productId != id)
+    if(req.body.productId!=true){
+        let result = data[0].cart.filter(({id}) => req.body.productId != id);
         data[0].cart = result;
         fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
             res.end(JSON.stringify({data}))
         });
-  })
+}
+    else{   
+        let users = data.filter((item) => item.id === req.body.userId);
+        users[0]['cart'];
+        delete users[0].cart[0];
+        delete cart[0];
+        fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
+            res.end(JSON.stringify({data}))
+        });
+    }    
+})
 });
