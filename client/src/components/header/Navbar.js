@@ -37,7 +37,7 @@ export default function Navbar() {
           className="px-2 btn btn-outline-success btn-sm ms-2 fs-5 text-color1 rounded position-relative" 
           style={{position:"relative",right:"0px",top:"0px"}}>
             Sepetim
-            <i class="bi bi-cart"></i>
+            <i className="bi bi-cart"></i>
             <div className={style.cartCount+" center text-white"}>+9</div>
           </div>
           <button className="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
