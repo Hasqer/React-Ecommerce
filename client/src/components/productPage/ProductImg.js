@@ -1,25 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from "./product.module.css";
 
-export default function ProductImg() {
+
+
+
+
+
+
+export default function ProductImg({photos}) {
+    
   return (
     <div id={style.ImageBox} className="col-xl-5 border border-light bg-white rounded ">
-      <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="true">
+      <div id="carouselExampleIndicators" className="carousel carousel-dark slide" data-bs-ride="true">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div className="carousel-inner my-3">
-          <div className="carousel-item ">
-            <img src="https://productimages.hepsiburada.net/s/32/550/10376494710834.jpg/format:webp" className="d-block w-100" alt="..."/>
-          </div>
-          <div className="carousel-item">
-            <img src="https://productimages.hepsiburada.net/s/32/550/10376529969202.jpg/format:webp" className="d-block w-100" alt="..."/>
-          </div>
-          <div className="carousel-item active">
-            <img src="https://productimages.hepsiburada.net/s/32/550/10376530001970.jpg/format:webp" className="d-block w-100" alt="..."/>
-          </div>
+        <div className="carousel-inner my-3 ">
+        {
+            photos != null && photos.map((item,i)=>{
+              return(
+                <>{
+                  (i == 0) ? 
+                  
+                  <div className="carousel-item active">
+                    <img src={item} id={style.Image} className="rounded d-block w-100" alt="..."/>
+                  </div>:
+
+                  <div className="carousel-item ">
+                    <img src={item} id={style.Image} className="rounded d-block w-100 h-100" alt="..."/>
+                  </div>
+                  }
+                </>
+              )
+            })
+          }
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
