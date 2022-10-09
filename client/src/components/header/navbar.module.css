@@ -78,11 +78,12 @@
 
 .userInfoBox{
     height: 35px;
-    width: 200px;
+    width: 250px;
     border-radius: 4px;
     border: 1px solid rgba(192, 192, 192, 0.7);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }

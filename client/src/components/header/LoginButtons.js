@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import style from "./navbar.module.css"
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import { setLogin } from '../../redux/slices/login'
+import { setUser } from '../../redux/slices/userInfo'
 import LoginPopup from './LoginPopup'
 
 export function BtnForLogin() {
@@ -18,10 +19,15 @@ export function BtnForLogin() {
 
 
 export function BtnForUser() {
-  
+    const dis = useDispatch();
+    const soru = ()=>{
+      dis(setLogin(false));
+      dis(setUser(null));
+      localStorage.removeItem("user");
+    }
     const userInfo = useSelector(state => state.userInfo.value)
     return (
-    <div className={style.userInfoBox} onClick={()=>console.log(userInfo)}>
+    <div className={style.userInfoBox} onClick={soru}>
       {
         userInfo.name.slice(0,1).toUpperCase()+
         userInfo.name.slice(1).toLowerCase()+
@@ -29,6 +35,7 @@ export function BtnForUser() {
         userInfo.surname.slice(0,1).toUpperCase()+
         userInfo.surname.slice(1).toLowerCase()
       }
+      <i className="bi bi-box-arrow-right ms-3 fs-4"></i>
     </div>
   )
 }
