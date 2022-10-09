@@ -6,9 +6,22 @@
     background-color: #fa991c;
 }
 
-.bg-color3{
-    background-color: green;
+.text-color1{
+    color: #032539;
 }
+
+.text-color2{
+    color: #fa991c;
+}
+
+.border-color1{
+    border-color: #032539 !important;
+}
+
+.border-color2{
+    border-color: #fa991c !important;
+}
+
 
 .center{
     display: flex;
