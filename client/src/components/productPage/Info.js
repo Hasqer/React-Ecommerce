@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "./product.module.css";
 
-export default function Info({title, shortDescription, price}) {
+export default function Info({title, shortDescription, price, category}) {
   return (
     <div id={style.containerInfoBox} className="col-xl-7 rounded p-0 justify-content-end d-flex" >
       <div id={style.InfoBox} className='bg-white rounded border border-light h-100'>
@@ -16,7 +16,7 @@ export default function Info({title, shortDescription, price}) {
         </div>
         <div id={style.category} className="mx-4 d-flex justify-content-start ">
           <h5>Kategori :</h5>
-          <h5 style={{marginLeft: "1rem"}}>Teknoloji</h5>
+          <h5 style={{marginLeft: "1rem"}}>{category}</h5>
         </div>
         <div id={style.price} className="mx-4 d-flex ">
           <h1>{price}</h1> <h1>,00  TL</h1>
