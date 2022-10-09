@@ -16,6 +16,20 @@
     align-items: center;
 }
 
+
+.crs-pointer{
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px){
+    .mobileDestroy{
+        display: none;
+    }
+    .mobileMiddle{
+        justify-content: center !important;
+    }
+}
+
 /* 
     292d36
     fc5f40

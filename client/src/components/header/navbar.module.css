@@ -1,5 +1,5 @@
 .bar{
-    transform: translate(0,-50%);
+    transform: translate(0,-27px);
 }
 
 .singBtn{
@@ -13,6 +13,36 @@
     transition: 0.3s;
     margin: 0px 5px;
     border-radius: 4px;
+}
+
+.searchbtn{
+    transition: 0.3s;
+}
+
+.searchbtn2{
+    position: absolute;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.searchbtn2:hover{
+    background-color: #fa991c;
+    border: 1px solid black;
+    
+}
+
+.searchbtn2 input{
+    outline: none;
+}
+
+@media screen and (min-width:768px) {
+    .navbuttons{
+        width: 100px;
+    }
 }
 
 .registerBtn{

@@ -17,12 +17,14 @@ export default function Header() {
   return (
     <div>
       <div className='text-white bg-color1 py-4 pb-5 px-4'>
-        <div className='container-xxl d-flex justify-content-between'>
-          <div>
-            <span className='border-end pe-3 me-3 border-info'>hakkımızda</span>
-            <span>redes@redes.com</span>
+        <div className='container-xxl d-flex justify-content-between mobileMiddle'>
+          <div className='mobileDestroy'>
+            <span className='border-end pe-3 me-3 border-info'>Hakkımızda</span>
+            <span>TechUse@techuse.com</span>
           </div>
-          { loginInfo ? <BtnForUser/>:<BtnForLogin/>}
+          <div>
+            { loginInfo ? <BtnForUser/>:<BtnForLogin/>}
+          </div>
         </div>
       </div>
 
