@@ -13,6 +13,7 @@ body{
     box-shadow:rgba(80, 80, 80, 0.1) 0px 0px 10px 0px;
     outline: rgb(36, 38, 37) none 0px;
     height: 550px;
+   
 }       
 
 #InfoBox{
@@ -57,7 +58,6 @@ body{
     margin-left: auto; 
     margin-right: auto; 
     width: calc(100% - 3rem);
-    
 }   
 
 .detailBox > button:hover{
@@ -83,7 +83,6 @@ body{
     outline: rgb(36, 38, 37) none 0px;
     box-sizing: border-box;
     padding: 25px;
-   
 }
 
 .ratings i{
@@ -126,10 +125,6 @@ body{
     }
     #Image{
         object-fit: contain;
-        height: 364px !important;
-    }
-    #ImageBox{
-        height: 400px !important;
     }
 }
 
@@ -138,4 +133,4 @@ body{
     height:524px !important;
 }
 
-.carousel-item  { width: 100%; height: 500px}
+

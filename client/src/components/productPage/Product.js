@@ -10,17 +10,16 @@ import { useParams } from 'react-router-dom';
 export default function Product() {
   let { id } = useParams();
   const alldata = useSelector(state => state.products.value);
-  const selectedProduct = alldata.filter((item) => item.id == id);
-  const photos = (selectedProduct[0] !== undefined) ? selectedProduct[0].photos : null;
-  
+  const selectedProduct = alldata.filter((item) => item.id == id)[0] || {};
+
   return(
     <div className='container-xl'>
       <div className='row'>
-        <ProductImg photos={photos}/>
-        <Info />
+        <ProductImg photos={selectedProduct.photos}/>
+        <Info title={selectedProduct.title} shortDescription={selectedProduct.shortDescription} price={selectedProduct.price}/>
       </div>
-      <Description />
-      <Comments />
+      <Description longDescription={selectedProduct.longDescription}/>
+      <Comments comments={selectedProduct.comments} />
     </div>
   )
 }
