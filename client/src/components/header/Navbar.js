@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import style from "./navbar.module.css"
 import img from "../../logo.png";
 
 export default function Navbar() {
-  const [search,getSearch] = useState(true)
   return (
     <div className={style.bar+' rounded w-100 m-0 bg-color2'}>
       <nav className="navbar navbar-expand-md rounded navbar-dark user-select-none">
