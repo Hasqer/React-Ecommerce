@@ -1,0 +1,20 @@
+.mybox{
+    width: 239px;
+    height: 300px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.imageBox{
+    height: 170px;
+    width: 100%;
+    object-fit: contain;
+    border-bottom: 1px solid rgba(240, 240, 240, 1);
+}
+
+@media screen and (max-width: 576px) {
+    .mybox{
+        width: 100%;
+        height: auto;
+    }
+}
