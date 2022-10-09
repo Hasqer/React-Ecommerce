@@ -5,14 +5,14 @@ const bodyParser = require("body-parser");
 const path = require("path")
 
 app.listen(80);
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname,"..\\client\\build")));
 app.use(express.json());
 
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"..\\client\\build\\index.html"));
-})
+});
 
 app.post('/register', function(request, response){
     
@@ -22,12 +22,13 @@ app.post('/register', function(request, response){
         const password=request.body.password;
         const name=request.body.name;
         const surname=request.body.surname;
+        var cart=new Array()
         x=Date.now();
-        console.log(email,password,name,surname);
+        console.log(email,password,name,surname,cart);
         const result1 = data.filter((item) => item.email === request.body.email);
         if(result1==""){
             if(password!="" && email!=""){
-                data.push({id:x,email:email,password:password,name:name,surname:surname});
+                data.push({id:x,email:email,password:password,name:name,surname:surname,cart:cart});
                 fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
                     const result = data.filter((item) => item.email === request.body.email)[0];
                     response.end(JSON.stringify({status:true,result}));
@@ -59,6 +60,7 @@ app.post('/login',(req,res)=>{
         }
     })
 }) ;
+
 app.post('/products',(req,res)=>{
     fs.readFile(__dirname+"/products.json",(error,data)=>{
         data=JSON.parse(data);
@@ -66,4 +68,34 @@ app.post('/products',(req,res)=>{
     })
 });
 
+app.post('/addcart',(req,res)=>{
+  
+    fs.readFile(__dirname+"/products.json",(error,data)=>{
+        data=JSON.parse(data);
+        let product = data.filter((item) => item.id === req.body.productId);
+        
+        fs.readFile(__dirname+"/userdata.json",(error,data)=>{
+            data=JSON.parse(data);
+            let users = data.filter((item) => item.id === req.body.userId);
+            console.log(product);
+            users[0]['cart'].push(product[0]);
+    
+            fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
+                res.end(JSON.stringify({users}));
+            })
+        });
 
+    });
+
+});
+
+app.post('/removecart',(req,res)=>{
+  fs.readFile(__dirname+"/userdata.json",(error,data)=>{
+    data = JSON.parse(data);
+        let result = data[0].cart.filter(({id}) => req.body.productId != id)
+        data[0].cart = result;
+        fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
+            res.end(JSON.stringify({data}))
+        });
+  })
+});
