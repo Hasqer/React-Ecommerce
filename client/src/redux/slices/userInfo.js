@@ -3,15 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userInfo = createSlice({
     name:'userInfo',
     initialState:{
-        value:{
-            name:"",
-            surname:""
-        }
+        value:{}
     },
     reducers:{
         setUser:(state,newText)=>{
-            state.value.name = newText.payload.name;
-            state.value.surname = newText.payload.surname;
+            state.value = newText.payload;
         }
     }
 })

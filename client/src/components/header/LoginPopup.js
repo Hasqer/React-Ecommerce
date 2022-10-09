@@ -26,10 +26,7 @@ export default function LoginPopup(props) {
     .then(res => {
       if(res.data.status){
         dis(setLogin(true));
-        dis(setUser({
-          name:res.data.result.name,
-          surname:res.data.result.surname,
-        }));
+        dis(setUser(res.data.result));
       }
       else{
         alert("E-posta yada şifre hatalı!");
@@ -48,10 +45,7 @@ export default function LoginPopup(props) {
       if(res.data.status == true){
         alert("kullanıcı başarılı bir şekilde kaydedildi")
         dis(setLogin(true));
-        dis(setUser({
-          name:res.data.result.name,
-          surname:res.data.result.surname,
-        }));
+        dis(setUser(res.data.result));
       }
       else if(res.data.status == "unsucces"){
         alert("bu kullanıcı var")
