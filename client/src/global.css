@@ -32,6 +32,15 @@
     align-items: center;
 }
 
+.center-align{
+    display: flex;
+    align-items: center;
+}
+
+.center-justify{
+    display: flex;
+    justify-content: center;
+}
 
 .crs-pointer{
     cursor: pointer;
