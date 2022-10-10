@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-axios.defaults.baseURL = "http://192.168.1.102";
+axios.defaults.baseURL = "http://192.168.1.200";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

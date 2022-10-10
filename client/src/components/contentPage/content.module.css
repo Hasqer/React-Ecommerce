@@ -1,6 +1,6 @@
 .mybox{
     width: 239px;
-    height: 300px;
+    height: 390px;
     margin: 10px;
     overflow: hidden;
 }
@@ -9,12 +9,25 @@
     height: 170px;
     width: 100%;
     object-fit: contain;
+    padding: 10px;
     border-bottom: 1px solid rgba(240, 240, 240, 1);
 }
+
+.buyBtn{
+    position: absolute;
+    bottom: 15px;
+    width: calc(100% - 30px);
+    left: 15px;
+}
+
+/* .btnPrice{
+    text-shadow: 1px 0 #032539, -1px 0 #032539, 0 1px #032539, 0 -1px #032539,
+1px 1px #032539, -1px -1px #032539, 1px -1px #032539, -1px 1px #032539;;
+} */
 
 @media screen and (max-width: 576px) {
     .mybox{
         width: 100%;
-        height: auto;
+        height: 350px;
     }
 }

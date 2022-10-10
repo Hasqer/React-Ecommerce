@@ -34,11 +34,13 @@ export default function Navbar() {
             
           </div>
           <div 
-          className="px-2 btn btn-outline-success btn-sm ms-2 fs-5 text-color1 rounded position-relative" 
+          className="px-2 btn btn-outline-success btn-sm ms-2 fs-5 text-color1 rounded d-flex position-relative" 
           style={{position:"relative",right:"0px",top:"0px"}}>
+            <div className="position-relative me-2">
+              <i className="bi bi-cart"></i>
+              <div className={style.cartCount+" center text-white"}>+9</div>
+            </div>
             Sepetim
-            <i className="bi bi-cart"></i>
-            <div className={style.cartCount+" center text-white"}>+9</div>
           </div>
           <button className="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
