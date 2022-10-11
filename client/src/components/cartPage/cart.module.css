@@ -1,14 +1,72 @@
-.title{
 
-    color: white;
-    font-size: 100px;
+
+.title > h1{
+    font-size: 16px;
 }
 
-#detailBox{
-    width: calc(100% - 3rem);
-    height: 550px;
+
+#containerProductBox{
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 0px;
+    max-height: 35rem;
 }
 
-#cartBox{
-    height: 200px;
+.Images{
+    height: 96px !important;
+    width: 96px !important;
+    object-fit: contain;
+    border: solid 1px rgb(240, 240, 240);
 }
+
+.counter{
+    font-size: 20px;
+    width: 30px;;
+    border: none;
+    outline: none;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+}
+
+@media screen and (min-width:1200px) {
+    #productBox{
+        width: calc(100% - 25px);
+    }
+}
+
+@media screen and (max-width:1200px) {
+    #containerInfoBox{
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+
+    }
+    #productBox{
+        width: calc(100% - 25px);
+    }
+    .Images{
+        height: 64px !important;
+        width: 64px !important;
+    }
+    .photoBox{
+        display: flex;
+        align-items: flex-start !important;
+    }
+    .titleBox > p{
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 18px;     /* fallback */
+            max-height: 128px;      /* fallback */
+            -webkit-line-clamp: 3; /* number of lines to show */
+            -webkit-box-orient: vertical;
+    }
+    .priceBox > p{
+        font-size: 14px;
+
+    }
+}
+
