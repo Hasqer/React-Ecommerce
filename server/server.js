@@ -3,7 +3,13 @@ const fs = require("fs");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path")
+
+var cors = require('cors');
+app.use(cors({"Access-Control-Allow-Origin": "http://localhost"}));
+
 var cart=new Array()
+
+
 
 app.listen(80);
 app.use(bodyParser.json());

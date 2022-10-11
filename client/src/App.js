@@ -31,7 +31,7 @@ function App() {
     <div>
       <Header></Header>
       {load && <Routes>
-        <Route path="/content" element={<Content/>} />
+        <Route path="/" element={<Content/>} />
         <Route path="/urunler/:id" element={<Product />} />
         <Route path="/sepetim" element={<Cart/>} />
       </Routes>}

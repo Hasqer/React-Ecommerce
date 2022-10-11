@@ -15,7 +15,7 @@ export default function Content() {
       {
         categorys.map(cate=>{
           return <div>
-            <span className='fw-bolder fs-4 m-0'>{cate}</span>
+            <span id={cate} className='fw-bolder fs-4 m-0'>{cate}</span>
             <hr className='mt-1'/>
             <div className='d-flex flex-wrap w-100'>
               {

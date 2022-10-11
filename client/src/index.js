@@ -8,7 +8,7 @@ import axios from "axios";
 
 
 
-axios.defaults.baseURL = "http://192.168.1.200";
+axios.defaults.baseURL = "http://localhost";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
