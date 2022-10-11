@@ -35,7 +35,7 @@ export default function Category({data}) {
           localStorage.setItem("user",JSON.stringify(res.data.users[0]));
         })
       }
-      else alert("Sepete eklemeden önce giriş yapmalısınız!");
+      else if( Object.keys(userdata).length == 0) alert("Sepete eklemeden önce giriş yapmalısınız!")
     }
     else alert("Sepete eklemeden önce giriş yapmalısınız!");
   }
