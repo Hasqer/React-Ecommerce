@@ -32,25 +32,25 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent"
           style={{textShadow:"1px 1px 1px rgba(0,0,0,0.5)"}}>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
-              <li className="nav-item">
-                <div className={style.navbuttons+" nav-link center crs-pointer"} aria-current="page">
-                <a href="#Monitör" className="text-decoration-none text-white">Monitörler</a>
-                </div>
+              <li className="nav-item"><a href="/#Monitör" className="text-decoration-none">
+                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
+                Monitörler
+                </div></a>
               </li>
-              <li className="nav-item">
-                <div className={style.navbuttons+" nav-link center crs-pointer"} aria-current="page">
-                  <a href="#Mouse" className="text-decoration-none text-white">Fareler</a>
-                </div>
+              <li className="nav-item"><a href="/#Mouse" className="text-decoration-none">
+                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
+                  Fareler
+                </div></a>
               </li>
-              <li className="nav-item">
-                <div className={style.navbuttons+" nav-link center crs-pointer"} aria-current="page">
-                  <a href="#Klavye" className="text-decoration-none text-white">Klavyeler</a>
-                </div>
+              <li className="nav-item"><a href="/#Klavye" className="text-decoration-none">
+                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
+                  Klavyeler
+                </div></a>
               </li>
-              <li className="nav-item">
-                <div className={style.navbuttons+" nav-link center crs-pointer"} aria-current="page">
-                  <a href="#Kulaklık" className="text-decoration-none text-white">Kulaklıklar</a>
-                </div>
+              <li className="nav-item"><a href="/#Kulaklık" className="text-decoration-none ">
+                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
+                  Kulaklıklar
+                </div></a>
               </li>
               
             </ul>
