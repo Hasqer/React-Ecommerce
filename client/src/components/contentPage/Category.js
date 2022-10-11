@@ -1,11 +1,30 @@
 import style from "./content.module.css"
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
+import { useSelector } from "react-redux";
+
 export default function Category({data}) {
+  const userdata = useSelector((s) => s.userInfo.value);
   const navigate = useNavigate();
+
   const goProduct=()=>{
     navigate("/urunler/"+data.id);
   }
+
+  const addcart=(e)=>{
+    e.stopPropagation();
+    if(userdata != null){
+      axios.post("/addcart",{
+        userId:userdata.id,
+        productId:data.id
+      })
+      .then(res => console.log(res.data))
+    }
+    else alert("Sepete eklemeden önce giriş yapmalısınız!");
+  }
+
+  
 
   return (
     <div 
@@ -20,7 +39,7 @@ export default function Category({data}) {
       
       <div className={style.buyBtn}>
         <div className={style.btnPrice+" fw-bolder fs-4 m-2 text-color1"}>{data.price+" TL"}</div>
-        <div className="btn btn-primary center" onMouseDown={(e)=>e.stopPropagation()}><i class="bi bi-cart me-2"></i>Sepete Ekle</div>
+        <div className="btn btn-primary center" onMouseDown={addcart}><i className="bi bi-cart me-2"></i>Sepete Ekle</div>
       </div>
     </div>  
   )
