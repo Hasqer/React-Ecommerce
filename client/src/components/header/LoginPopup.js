@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch } from 'react-redux'
 import { setLogin } from '../../redux/slices/login'
 import { setUser } from '../../redux/slices/userInfo'
-import { getProduct } from '../../redux/slices/products';
+
 
 export default function LoginPopup(props) {
 
@@ -28,6 +28,8 @@ export default function LoginPopup(props) {
         dis(setLogin(true));
         dis(setUser(res.data.result));
         localStorage.setItem("user",JSON.stringify(res.data.result));
+        localStorage.setItem("pass",password.toString());
+        localStorage.setItem("email",email.toString());
       }
       else{
         alert("E-posta yada şifre hatalı!");
@@ -48,6 +50,8 @@ export default function LoginPopup(props) {
         dis(setLogin(true));
         dis(setUser(res.data.result));
         localStorage.setItem("user",JSON.stringify(res.data.result));
+        localStorage.setItem("pass",password.toString());
+        localStorage.setItem("email",email.toString());
       }
       else if(res.data.status == "unsucces"){
         alert("bu kullanıcı var")

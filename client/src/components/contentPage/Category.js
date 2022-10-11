@@ -2,7 +2,8 @@ import style from "./content.module.css"
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { setUser } from "../../redux/slices/userInfo";
 
 export default function Category({data}) {
   const userdata = useSelector((s) => s.userInfo.value);
@@ -12,6 +13,8 @@ export default function Category({data}) {
     navigate("/urunler/"+data.id);
   }
 
+  const dis = useDispatch();
+
   const addcart=(e)=>{
     e.stopPropagation();
     if(userdata != null){
@@ -19,12 +22,29 @@ export default function Category({data}) {
         userId:userdata.id,
         productId:data.id
       })
-      .then(res => console.log(res.data))
+      .then(res => {
+        refresh();
+      })
     }
     else alert("Sepete eklemeden önce giriş yapmalısınız!");
   }
 
-  
+  const refresh=()=>{
+    axios.post('/login',{
+      email:localStorage.getItem("email"),
+      password:localStorage.getItem("pass")
+    })
+    .then(res => {
+      if(res.data.status){
+        dis(setUser(res.data.result));
+        localStorage.setItem("user",JSON.stringify(res.data.result));
+      }
+      else{
+        alert("96874512: Kullanıcı verileri hatalı!");
+      }
+    })
+  }
+
 
   return (
     <div 

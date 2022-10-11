@@ -24,6 +24,8 @@ export function BtnForUser() {
       dis(setLogin(false));
       dis(setUser(null));
       localStorage.removeItem("user");
+      localStorage.removeItem("email");
+      localStorage.removeItem("pass");
     }
     const userInfo = useSelector(state => state.userInfo.value)
     return (

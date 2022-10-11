@@ -1,20 +1,11 @@
 import React from 'react'
 import Navbar from './Navbar'
-import axios from "axios";
 import { BtnForLogin,BtnForUser } from './LoginButtons';
 import { useSelector } from 'react-redux'
 import img from "../../logo.png";
 
 export default function Header() {
-
-  
-
   const loginInfo = useSelector(state => state.login.value);
-  const getUser = ()=>{
-    axios.get('https://jsonplaceholder.typicode.com/todos/1')
-    .then(res => console.log(res.data));
-  }
-
   return (
     <div>
       <div className='text-white bg-color1 py-4 user-select-none pb-5 px-4'>
