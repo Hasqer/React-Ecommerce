@@ -32,8 +32,10 @@ export default function Header() {
         <div className='container-xxl d-flex justify-content-between mobileMiddle'>
           <div className='mobileDestroy'>
             <img src={img} alt="" width={40} className="crs-pointer" onClick={goHome} style={{marginRight:"20px"}}/>
-            <span className='border-end pe-3 me-3 border-info'>Hakkımızda</span>
-            <span>weare@techuse.com</span>
+            <a href="https://github.com/Sarusbr/React-Ecommerce" className='text-decoration-none'><span className='border-start ps-3 ms-3 text-muted border-info'>
+              <i class="bi bi-github fs-5 me-2"></i>
+              <span>github.com/Sarusbr/React-Ecommerce</span>
+            </span></a>
           </div>
           <div>
             { loginInfo ? <BtnForUser/>:<BtnForLogin/>}

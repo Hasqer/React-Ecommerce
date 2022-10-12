@@ -1,6 +1,7 @@
 import React from 'react'
 import Category from './Category'
 import { useSelector } from 'react-redux'
+import sliderImages from './sliderImages'
 
 export default function Content() {
   const asd = ["asd1","asd2","asd3"]
@@ -12,6 +13,32 @@ export default function Content() {
   });
   return (
     <div className='container-xxl'>
+      {search.length <= 0 && <div id="carouselExampleIndicators" className="carousel carousel-dark slide" data-bs-ride="true">
+        <div className="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img src={sliderImages[0]} className="d-block w-100"/>
+          </div>
+          <div className="carousel-item">
+            <img src={sliderImages[1]} className="d-block w-100"/>
+          </div>
+          <div className="carousel-item">
+            <img src={sliderImages[2]} className="d-block w-100"/>
+          </div>
+        </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>}
       {
         search.length > 0 ? <div className='d-flex flex-wrap'>
           {

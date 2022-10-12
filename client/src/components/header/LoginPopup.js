@@ -100,6 +100,13 @@ export default function LoginPopup(props) {
     })
   }
 
+  const enterLogin=(e)=>{
+    if(e.key == "Enter"){
+      if(!MyLogin) loginFunc();
+      else registerFunc();
+    }
+  }
+
   return (
     <div className={style.popupContainer+" center"} onMouseDown={()=>props.popup(false)}>
         <div className={style.popup+" text-black d-flex flex-column justify-content-between"} style={{height:MyLogin?"550px":"400px"}} onMouseDown={(e)=>e.stopPropagation()}>
@@ -115,12 +122,12 @@ export default function LoginPopup(props) {
           </div>
           <div className='p-4'>
             { MyLogin && <div className='gap-3 d-flex'>
-              <input type="text" value={myname} onChange={(e)=>setMyname(e.target.value)} className={style.input+" fs-4"} placeholder="İsim"/>
-              <input type="text" value={mylastname} onChange={(e)=>setMylastname(e.target.value)} className={style.input+" fs-4"} placeholder="Soyisim"/></div>
+              <input type="text" onKeyDown={enterLogin} value={myname} onChange={(e)=>setMyname(e.target.value)} className={style.input+" fs-4"} placeholder="İsim"/>
+              <input type="text" onKeyDown={enterLogin} value={mylastname} onChange={(e)=>setMylastname(e.target.value)} className={style.input+" fs-4"} placeholder="Soyisim"/></div>
             }
-            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className={style.input+" fs-4"} placeholder="E-posta"/>
-            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className={style.input+" fs-4"} placeholder="Şifre"/>
-            {MyLogin && <input type="password" value={password2} onChange={(e)=>setPassword2(e.target.value)} className={style.input+" fs-4"} placeholder="Tekrar şifre"/>}
+            <input onKeyDown={enterLogin} type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className={style.input+" fs-4"} placeholder="E-posta"/>
+            <input type="password" value={password} onKeyDown={enterLogin} onChange={(e)=>setPassword(e.target.value)} className={style.input+" fs-4"} placeholder="Şifre"/>
+            {MyLogin && <input onKeyDown={enterLogin} type="password" value={password2} onChange={(e)=>setPassword2(e.target.value)} className={style.input+" fs-4"} placeholder="Tekrar şifre"/>}
           </div>
           <div className='p-4 d-flex justify-content-between' >
             <div 

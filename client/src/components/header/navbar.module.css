@@ -1,5 +1,6 @@
 .bar{
     transform: translate(0,-27px);
+    margin-bottom: -27px !important;
 }
 
 .singBtn{
