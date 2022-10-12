@@ -104,19 +104,20 @@ app.post('/removecart',(req,res)=>{
     fs.readFile(__dirname+"/userdata.json",(error,data)=>{
 
         data = JSON.parse(data);
-        const userData = data.filter(({id})=> req.body.UserId == id )[0];
+        const userData = data.filter(({id})=> req.body.userId == id )[0];
+
 
         if(req.body.productId != null){ 
             userData.cart = userData.cart.filter(({id}) => req.body.productId != id);
             fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>
-                res.end(JSON.stringify({data}))
+                res.end(JSON.stringify({userData}))
             );
         }
         else{   
             userData.cart = [];
             
             fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>
-                res.end(JSON.stringify({data}))
+                res.end(JSON.stringify({userData}))
             );
         }    
     });
