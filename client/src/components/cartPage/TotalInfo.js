@@ -53,7 +53,7 @@ export default function TotalInfo({totalPrice, userId, setTotalPrice}) {
                     </div>
                 </div>
                 <div className="d-grid">
-                    <button className="btn bg-color1 text-white py-3" onClick={completeFunction} type="button">Alışverişi Tamamla</button>
+                    <button className="btn bg-color1 text-white py-3 btn-primary" onClick={completeFunction} type="button">Alışverişi Tamamla</button>
                 </div>
                 </div>
             </div>
