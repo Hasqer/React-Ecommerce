@@ -7,12 +7,13 @@ import axios from "axios";
 
 export default function Category({data}) {
   const userdata = useSelector((s) => s.userInfo.value);
+  const loginData = useSelector((s) => s.login.value);
   const [hover,setHover] = useState(false);
   const [filter,setFilter] = useState(false);
   const navigate = useNavigate();
 
   useEffect(()=>{
-    if(userdata != undefined){
+    if(loginData){
       setFilter(Object.keys(userdata).length != 0 ? userdata.cart.some(item => item.id == data.id):"empty");
     }
     else setFilter(false);
@@ -28,7 +29,7 @@ export default function Category({data}) {
   }
   const addcart=(e)=>{
     e.stopPropagation();
-    if(userdata != null){
+    if(loginData){
       if(filter == false){
         axios.post("/addcart",{
           userId:userdata.id,

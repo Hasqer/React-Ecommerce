@@ -3,7 +3,7 @@ import img from "../../logo.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { setSearch } from "../../redux/slices/search"; 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -11,6 +11,7 @@ export default function Navbar() {
   const dis = useDispatch();
   const data1 = useSelector((s)=>s.userInfo.value);
   const [ser,setSer] = useState("");
+  const loginData = useSelector((s)=>s.login.value);
   let data = 0;
   
   
@@ -25,7 +26,8 @@ export default function Navbar() {
   }
 
   const goCart=()=>{
-    navigate("/sepetim");
+    if(loginData)navigate("/sepetim");
+    else alert("Önce giriş yapmalısınız!");
   }
   const goHome=()=>{
     navigate("/");
@@ -72,7 +74,7 @@ export default function Navbar() {
             
           </div>
           <div 
-          className="px-2 btn btn-outline-success btn-sm ms-2 fs-5 text-color1 rounded d-flex position-relative" 
+          className="px-2 btn btn-outline-success btn-sm ms-2 fs-5 text-white rounded d-flex position-relative" 
           style={{position:"relative",right:"0px",top:"0px"}}
           onClick={goCart}>
             <div className="position-relative me-2">
