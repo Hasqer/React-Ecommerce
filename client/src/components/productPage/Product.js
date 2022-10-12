@@ -11,6 +11,7 @@ export default function Product() {
   let { id } = useParams();
 
   const alldata = useSelector(state => state.products.value);
+  const userId = useSelector(state => state.userInfo.value).id;
   const selectedProduct = alldata.filter((item) => item.id == id)[0];
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function Product() {
     <div className='container-xl'>
       <div className='row'>
         <ProductImg photos={selectedProduct.photos}/>
-        <Info title={selectedProduct.title} shortDescription={selectedProduct.shortDescription} price={selectedProduct.price} category={selectedProduct.category}/>
+        <Info selectedProduct={selectedProduct} userId={userId}/>
       </div>
       <Description longDescription={selectedProduct.longDescription}/>
       <Comments comments={selectedProduct.comments} />
