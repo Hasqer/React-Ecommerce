@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import style from "./product.module.css";
 
 export default function ProductImg({photos}) {
