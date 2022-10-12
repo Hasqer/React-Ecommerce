@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from "./cart.module.css";
 import Products from "./Products";
 import TotalInfo from "./TotalInfo";
 import {useSelector} from "react-redux"
 
 export default function Cart() {
-  const cartData = useSelector(state => state.userInfo.value).cart;
+  const {cart : cartData, id : UserId} = useSelector(state => state.userInfo.value);
   const [totalPrice, setTotalPrice] = useState(0);
- 
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return(
     <div className='container-xl'>
@@ -18,14 +20,14 @@ export default function Cart() {
             {
               cartData.map((element, i)=>{
                 return(
-                      <Products cartData={cartData[i]} setTotalPrice={setTotalPrice} />
+                      <Products cartData={cartData[i]} userId={UserId} setTotalPrice={setTotalPrice} />
                 )
               })
             }
           </div>
         </div>
-        <div id={style.containerInfoBox} className="col-xl-3 rounded" >
-          <TotalInfo totalPrice={totalPrice} />
+        <div id={style.containerInfoBox} className=" col-xl-3 rounded" >
+          <TotalInfo totalPrice={totalPrice} userId={UserId} setTotalPrice={setTotalPrice}/>
         </div>
       </div>
     </div>
