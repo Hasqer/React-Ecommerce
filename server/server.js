@@ -11,9 +11,9 @@ var cart=new Array()
 
 
 
-app.listen(80);
+app.listen(80 || process.env.PORT);
 app.use(bodyParser.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended : true }))
 app.use(express.static(path.join(__dirname,"..\\client\\build")));
 app.use(express.json());
 
@@ -101,23 +101,24 @@ app.post('/addcart',(req,res)=>{
 });
 
 app.post('/removecart',(req,res)=>{
-  fs.readFile(__dirname+"/userdata.json",(error,data)=>{
-    data = JSON.parse(data);
-    if(req.body.productId!=true){
-        let result = data[0].cart.filter(({id}) => req.body.productId != id);
-        data[0].cart = result;
-        fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
-            res.end(JSON.stringify({data}))
-        });
-}
-    else{   
-        let users = data.filter((item) => item.id === req.body.userId);
-        users[0]['cart'];
-        delete users[0].cart[0];
-        delete cart[0];
-        fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>{
-            res.end(JSON.stringify({data}))
-        });
-    }    
-})
+    fs.readFile(__dirname+"/userdata.json",(error,data)=>{
+
+        data = JSON.parse(data);
+        const userData = data.filter(({id})=> req.body.userId == id )[0];
+
+
+        if(req.body.productId != null){ 
+            userData.cart = userData.cart.filter(({id}) => req.body.productId != id);
+            fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>
+                res.end(JSON.stringify({userData}))
+            );
+        }
+        else{   
+            userData.cart = [];
+            
+            fs.writeFile(__dirname+"/userdata.json",JSON.stringify(data),(error)=>
+                res.end(JSON.stringify({userData}))
+            );
+        }    
+    });
 });
