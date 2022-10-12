@@ -52,14 +52,14 @@ export default function Products({cartData, userId, setTotalPrice}) {
                 </div>
                 <div className="col-xl-2 d-flex align-items-center justify-content-end" >
                     <div className={style.priceBox + " d-flex  justify-content-start w-100 align-items-center"}>
-                        <p className='m-auto'>{numberWithCommas(cartData.price)},00 TL</p>
+                        <p className='m-auto'>{numberWithCommas(cartData.price * count)},00 TL</p>
                     </div>
                 <div className="d-flex flex-column justify-content-center">
                     <button type="button"  onClick={increase} className='btn btn-sm m-0 p-0  border-0'>
                         <i style={{fontSize:"20px"}} id={cartData.id} className="bi bi-plus-circle"></i>
                     </button>
                     <input type="number" value={count} readOnly className={style.counter + " m-0 p-0 text-center"}/>
-                    <button type="button" onClick={decrease} className='btn btn-sm m-0 p-0  border-0'>
+                    <button type="button" onClick={decrease} className='btn btn-sm m-0 p-0 border-0'>
                         <i style={{fontSize:"20px"}}  id={cartData.id} className={(count>1) ? "bi bi-dash-circle" : "bi bi-trash3"}></i>
                     </button>
                 </div>
