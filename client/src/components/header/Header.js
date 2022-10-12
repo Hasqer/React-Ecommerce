@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <div>
       <div style={{width:scroll<100?"0px":"50px",height:scroll<100?"0px":"50px"}} className={style.scrollUp+" bg-color2 rounded center crs-pointer"} onClick={goUp}>
-        {scroll >= 100 && <i class="bi bi-arrow-up-short fs-1"></i>}
+        {scroll >= 100 && <i className="bi bi-arrow-up-short fs-1"></i>}
       </div>
       <div className='text-white bg-color1 py-4 user-select-none pb-5 px-4'>
         <div className='container-xxl d-flex justify-content-between mobileMiddle'>

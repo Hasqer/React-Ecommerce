@@ -2,6 +2,7 @@ import Header from "./components/header/Header";
 import Product from "./components/productPage/Product";
 import Content from "./components/contentPage/Content";
 import Cart from "./components/cartPage/Cart";
+import ErrorPage from "./components/ErrorPage";
 import {Routes, Route} from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { getProduct } from "./redux/slices/products";
@@ -10,7 +11,7 @@ import { setLogin } from "./redux/slices/login";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import './global.css';
-
+import loading from "./loading.svg";
 
 function App() {
   const dis = useDispatch();
@@ -30,11 +31,16 @@ function App() {
   return (
     <div>
       <Header></Header>
-      {load && <Routes>
+      {load ? <Routes>
         <Route path="/" element={<Content/>} />
         <Route path="/urunler/:id" element={<Product />} />
         <Route path="/sepetim" element={<Cart/>} />
-      </Routes>}
+        <Route path="*" element={<ErrorPage/>}></Route>
+      </Routes>:
+      <div className="center flex-column">
+        <img src={loading} alt="" />
+      </div>
+      }
     </div>
     );
 }

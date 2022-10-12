@@ -18,7 +18,44 @@ export default function LoginPopup(props) {
 
   const dis = useDispatch();
 
+  const formControl = () =>{
+    const splitEmail = email.split("@");
+    if(
+      !email.includes("@") || 
+      splitEmail.length != 2 || 
+      splitEmail[0].length < 3 || 
+      splitEmail[1].length < 3 || 
+      !splitEmail[1].includes(".") ||
+      splitEmail[1][0] == "." ||
+      splitEmail[1][(splitEmail[1].length)-1] == "."
+      ){
+      alert("E-posta Uygun değil!");
+      return false;
+    }
+    else if(password.length < 8){
+      alert("Şifre 8 karakterden az olamaz!")
+      return false;
+    }
+    else if(MyLogin){ //kayıt kısmında ise
+      if(password != password2){
+        alert("Şifreler aynı değil!");
+        return false;
+      }
+      else if(myname.length < 3){
+        alert("İsim 3 karakterden az olamaz!")
+        return false
+      }
+      else if(mylastname.length < 3){
+        alert("Soyisim 3 karakterden az olamaz!")
+        return false
+      }
+      
+    }
+    return true;
+  }
+
   const loginFunc=()=>{
+    if(!formControl())return;
     axios.post('/login',{
       email,
       password
@@ -38,6 +75,7 @@ export default function LoginPopup(props) {
   }
 
   const registerFunc=()=>{
+    if(!formControl())return;
     axios.post('/register',{
       email,
       password,

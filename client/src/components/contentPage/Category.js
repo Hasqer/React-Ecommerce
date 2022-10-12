@@ -47,7 +47,6 @@ export default function Category({data}) {
 
   return (
     <div 
-    on
     className={style.mybox+" box-shadow p-3 text-black bg-white rounded position-relative crs-pointer"} 
     onMouseDown={goProduct}>
       <img src={data.photos[0]} className={style.imageBox}></img>
