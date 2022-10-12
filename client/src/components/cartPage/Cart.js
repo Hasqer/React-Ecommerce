@@ -20,7 +20,7 @@ export default function Cart() {
     <div className='container-xl'>
       <div className='row'>
         <div id={style.containerProductBox} className="col-xl-9 rounded ">
-          <div className='box-shadow pt-4 pb-3 px-2 bg-white rounded border border-light '>
+          <div className='box-shadow pt-4 pb-3 mb-4 px-2 bg-white rounded border border-light '>
             {
               cartData.map((element, i)=>{
                 return(
@@ -30,7 +30,7 @@ export default function Cart() {
             }
           </div>
         </div>
-        <div id={style.containerInfoBox} className=" col-xl-3 rounded" >
+        <div id={style.containerInfoBox} className="col-xl-3 rounded mb-4" >
           <TotalInfo totalPrice={totalPrice} userId={UserId} setTotalPrice={setTotalPrice}/>
         </div>
       </div>

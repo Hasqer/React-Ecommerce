@@ -38,11 +38,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width:1200px) {
-    #containerInfoBox{
-        margin-top: 2rem;
-        margin-bottom: 3rem;
-
-    }
     #productBox{
         width: calc(100% - 25px);
     }
@@ -59,8 +54,9 @@ input[type=number]::-webkit-outer-spin-button {
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
-            line-height: 18px;     /* fallback */
+            line-height: 16px;     /* fallback */
             max-height: 128px;      /* fallback */
+            max-width: calc(100% - 35px);
             -webkit-line-clamp: 3; /* number of lines to show */
             -webkit-box-orient: vertical;
     }
