@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Description from './Description';
 import ProductImg from './ProductImg';
 import Info from './Info';
@@ -12,6 +12,10 @@ export default function Product() {
 
   const alldata = useSelector(state => state.products.value);
   const selectedProduct = alldata.filter((item) => item.id == id)[0];
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if(selectedProduct == undefined)
     return(<h1 className='display-1 d-flex justify-content-center'>404 ERROR!</h1>);
