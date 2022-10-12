@@ -5,7 +5,7 @@ import TotalInfo from "./TotalInfo";
 import {useSelector} from "react-redux"
 
 export default function Cart() {
-  const {cart : cartData, id : UserId} = useSelector(state => state.userInfo.value);
+  const {cart : cartData, id : UserId} = useSelector(state => state.userInfo.value) || {};
   const [totalPrice, setTotalPrice] = useState(0);
   const loggedIn = useSelector(state => state.login.value);
 
@@ -24,7 +24,7 @@ export default function Cart() {
             {
               cartData.map((element, i)=>{
                 return(
-                      <Products cartData={cartData[i]} userId={UserId} setTotalPrice={setTotalPrice} />
+                      <Products key={i} cartData={cartData[i]} userId={UserId} setTotalPrice={setTotalPrice} />
                 )
               })
             }
