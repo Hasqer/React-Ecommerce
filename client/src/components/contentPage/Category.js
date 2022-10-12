@@ -7,6 +7,7 @@ import axios from "axios";
 
 export default function Category({data}) {
   const userdata = useSelector((s) => s.userInfo.value);
+  const [hover,setHover] = useState(false);
   const [filter,setFilter] = useState(false);
   const navigate = useNavigate();
 
@@ -22,6 +23,9 @@ export default function Category({data}) {
   }
   const dis = useDispatch();
 
+  const numberWithCommas = function (x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
   const addcart=(e)=>{
     e.stopPropagation();
     if(userdata != null){
@@ -42,6 +46,7 @@ export default function Category({data}) {
 
   return (
     <div 
+    on
     className={style.mybox+" box-shadow p-3 text-black bg-white rounded position-relative crs-pointer"} 
     onMouseDown={goProduct}>
       <img src={data.photos[0]} className={style.imageBox}></img>
@@ -52,7 +57,7 @@ export default function Category({data}) {
       </div>
       
       <div className={style.buyBtn}>
-        <div className={style.btnPrice+" fw-bolder fs-4 m-2 text-color1"}>{data.price+" TL"}</div>
+        <div className={style.btnPrice+" fw-bolder fs-4 m-2 text-color1"}>{numberWithCommas(data.price)+" TL"}</div>
         <div className={"btn btn-"+(filter==true?"danger":"primary")+" center"} onMouseDown={addcart}>
           <i className="bi bi-cart me-2"></i>{filter == true ? "Sepette Mevcut":"Sepete Ekle"} </div>
       </div>

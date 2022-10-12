@@ -1,13 +1,22 @@
 import style from "./navbar.module.css"
 import img from "../../logo.png";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
- 
+import { useSelector,useDispatch } from "react-redux";
+import { setSearch } from "../../redux/slices/search"; 
+import { useEffect, useState } from "react";
+
 export default function Navbar() {
   const navigate = useNavigate();
+  const searchValue = useSelector((e)=>e.search.value);
+  const dis = useDispatch();
   const data1 = useSelector((s)=>s.userInfo.value);
-  
+  const [ser,setSer] = useState("");
   let data = 0;
+  
+  
+  /* useEffect(()=>{
+    dis(setSearch(ser))
+  },[ser]) */
 
   try {
     data = (data1 == null ? 0 : data1.cart.length)
@@ -23,15 +32,25 @@ export default function Navbar() {
   }
   return (
     <div className={style.bar+' rounded w-100 m-0 bg-color2 border border-dark text-dark shadow'}>
+      
       <nav className="navbar navbar-expand-lg rounded navbar-dark user-select-none">
         <div className="container-fluid">
-          <div className="navbar-brand border-end pe-4 text-color1 border-white crs-pointer">
-            <b style={{textShadow:"1px 1px 2px rgba(255,255,255,1)"}} onClick={goHome}>TechUse</b>
+          <div className="navbar-brand pe-2 text-color1 crs-pointer" onClick={goHome}>
+            <b style={{textShadow:"1px 1px 2px rgba(255,255,255,1)"}}>TechUse{ser}</b>
           </div>
-          
-          <div className="collapse navbar-collapse" id="navbarSupportedContent"
+          <div className="collapse navbar-collapse ps-2 border-start border-white" id="navbarSupportedContent"
           style={{textShadow:"1px 1px 1px rgba(0,0,0,0.5)"}}>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
+              <li className="nav-item"><a href="/#Kulaklık" className="text-decoration-none ">
+                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
+                  Kulaklıklar
+                </div></a>
+              </li>
+              <li className="nav-item"><a href="/#Klavye" className="text-decoration-none">
+                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
+                  Klavyeler
+                </div></a>
+              </li>
               <li className="nav-item"><a href="/#Monitör" className="text-decoration-none">
                 <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
                 Monitörler
@@ -42,21 +61,13 @@ export default function Navbar() {
                   Fareler
                 </div></a>
               </li>
-              <li className="nav-item"><a href="/#Klavye" className="text-decoration-none">
-                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
-                  Klavyeler
-                </div></a>
-              </li>
-              <li className="nav-item"><a href="/#Kulaklık" className="text-decoration-none ">
-                <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
-                  Kulaklıklar
-                </div></a>
-              </li>
               
             </ul>
             <div className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success"><i className="bi bi-search"></i></button>
+              <input 
+              value={searchValue} 
+              onChange={(e)=>dis(setSearch(e.target.value))}
+              className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             </div>
             
           </div>

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch } from 'react-redux'
 import { setLogin } from '../../redux/slices/login'
 import { setUser } from '../../redux/slices/userInfo'
-
+import img from "../../logo.png";
 
 export default function LoginPopup(props) {
 
@@ -60,18 +60,21 @@ export default function LoginPopup(props) {
         alert("veriler boş geldi")
       }
     })
-
-    /*
-      true (data)
-      unsucces (bu veriler zaten)
-      false (boş veri)
-    */
   }
 
   return (
     <div className={style.popupContainer+" center"} onMouseDown={()=>props.popup(false)}>
         <div className={style.popup+" text-black d-flex flex-column justify-content-between"} style={{height:MyLogin?"550px":"400px"}} onMouseDown={(e)=>e.stopPropagation()}>
-          <div className='center h-25 bg-color1 text-white'>Logo</div>
+          <div className='center h-25 bg-color1 text-white'>
+            <img src={img} alt="" width={90} 
+            style={
+              {
+                boxShadow:"0px 0px 20px white,inset 0px 0px 5px white",
+                borderRadius:"100%",
+                padding:"10px"
+              }
+              }/>
+          </div>
           <div className='p-4'>
             { MyLogin && <div className='gap-3 d-flex'>
               <input type="text" value={myname} onChange={(e)=>setMyname(e.target.value)} className={style.input+" fs-4"} placeholder="İsim"/>

@@ -5,12 +5,17 @@
     overflow: hidden;
 }
 
+.mybox:hover img{
+    padding: 0px;
+}
+
 .imageBox{
     height: 170px;
     width: 100%;
-    object-fit: contain;
     padding: 10px;
+    object-fit: contain;
     border-bottom: 1px solid rgba(240, 240, 240, 1);
+    transition: 0.3s;
 }
 
 .buyBtn{
