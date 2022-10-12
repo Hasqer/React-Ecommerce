@@ -15,7 +15,7 @@ export default function Description({comments}) {
                 <div key={x} className={style.ratings}>
                   {
                   ratingCount.map((empty, i) =>{
-                    if(parseInt(item.rating) >= (i+1) )
+                    if(parseInt(item.rating) >= (i+1))
                     return( <i key={i} className={style.ratingColor +" bi bi-star-fill"}></i>)
                     else
                     return( <i key={i} className="bi bi-star-fill"></i>)
@@ -28,7 +28,9 @@ export default function Description({comments}) {
                 <div key={Math.random()} className={ "col-xl-10 mt-4 container d-flex justify-content-start align-items-center m-0"}>
                   <p className={style.commentText}>{item.comment}</p>
                 </div>
-                <hr className="mb-0 mt-4 w-100 text-secondary"></hr> 
+                {
+                (x < comments.length-1) && <hr className="mb-0 mt-4 w-100 text-secondary"/>
+                }
         </div>)
       })
      }
