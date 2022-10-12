@@ -7,6 +7,10 @@ import {useSelector} from "react-redux"
 export default function Cart() {
   const {cart : cartData, id : UserId} = useSelector(state => state.userInfo.value);
   const [totalPrice, setTotalPrice] = useState(0);
+  const loggedIn = useSelector(state => state.login.value);
+
+  if(!loggedIn)
+    window.location.replace("/");
 
   useEffect(() => {
     window.scrollTo(0, 0)
