@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import sliderImages from './sliderImages'
 
 export default function Content() {
-  const asd = ["asd1","asd2","asd3"]
   const products = useSelector((s)=>s.products.value);
   const search = useSelector((s)=>s.search.value);
   let categorys = [];
@@ -21,13 +20,13 @@ export default function Content() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={sliderImages[0]} className="d-block w-100"/>
+            <img src={sliderImages[0]} alt="" className="d-block w-100"/>
           </div>
           <div className="carousel-item">
-            <img src={sliderImages[1]} className="d-block w-100"/>
+            <img src={sliderImages[1]} alt="" className="d-block w-100"/>
           </div>
           <div className="carousel-item">
-            <img src={sliderImages[2]} className="d-block w-100"/>
+            <img src={sliderImages[2]} alt="" className="d-block w-100"/>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

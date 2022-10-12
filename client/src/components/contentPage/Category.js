@@ -8,7 +8,6 @@ import axios from "axios";
 export default function Category({data}) {
   const userdata = useSelector((s) => s.userInfo.value);
   const loginData = useSelector((s) => s.login.value);
-  const [hover,setHover] = useState(false);
   const [filter,setFilter] = useState(false);
   const navigate = useNavigate();
 

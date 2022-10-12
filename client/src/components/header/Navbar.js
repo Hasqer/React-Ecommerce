@@ -1,5 +1,4 @@
 import style from "./navbar.module.css"
-import img from "../../logo.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { setSearch } from "../../redux/slices/search"; 
