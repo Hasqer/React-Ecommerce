@@ -22,11 +22,16 @@ export default function Cart() {
         <div id={style.containerProductBox} className="col-xl-9 rounded ">
           <div className='box-shadow pt-4 pb-3 mb-4 px-2 bg-white rounded border border-light '>
             {
+              (cartData.length > 0) ?(
               cartData.map((element, i)=>{
                 return(
-                      <Products key={i} cartData={cartData[i]} userId={UserId} setTotalPrice={setTotalPrice} />
+                    <Products key={i} cartData={cartData[i]} userId={UserId} setTotalPrice={setTotalPrice} />
                 )
-              })
+              }))
+              :(<div className="conteiner-xl flex-column center">
+                  <i style={{fontSize:"80px"}} className="bi bi-cart"></i>
+                  <h1 className="d-flex justify-content-end">Sepetinde ürün bulunmamaktadır.</h1>
+              </div>)
             }
           </div>
         </div>
