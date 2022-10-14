@@ -1,6 +1,7 @@
 import axios from "axios";
 import { setUser } from "../../redux/slices/userInfo";
 import { useDispatch } from "react-redux";
+import {useEffect,useState} from "react";
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -9,10 +10,9 @@ function numberWithCommas(x) {
 export default function TotalInfo({totalPrice, userId, setTotalPrice}) {
 
     const dis = useDispatch();
-    const totalPriceText = numberWithCommas(totalPrice);
 
-    const completeFunction = () =>{
-        axios.post("/removecart",{
+    const completeFunction = () => {
+        axios.post("/removecart", {
             userId:parseInt(userId)
           })
           .then(res => {
@@ -22,19 +22,18 @@ export default function TotalInfo({totalPrice, userId, setTotalPrice}) {
           });
     }
    
-    
     return (
-            <div className='box-shadow bg-white rounded border border-light'>
+            <div className="box-shadow bg-white rounded border border-light">
                 <div className="my-3 mx-2 d-flex row justify-content-center align-items-center h-100">
                 <div className="m-1">
                     <h1 style={{fontSize:"22px"}} >Sipariş Özeti</h1>
                 </div>
                 <div className="d-flex row mt-3">
-                    <div className='d-flex justify-content-between'>
+                    <div className="d-flex justify-content-between">
                     <h1 style={{fontSize:"15px"}}>Ürünler</h1>
-                    <h1 style={{fontSize:"18px"}}>{totalPriceText},00 TL</h1>
+                    <h1 style={{fontSize:"18px"}}>{numberWithCommas(totalPrice)},00 TL</h1>
                     </div>
-                    <div className='d-flex justify-content-between mb-2'>
+                    <div className="d-flex justify-content-between mb-2">
                     <h1 style={{fontSize:"15px"}}>Kargo</h1>
                     {
                       parseInt(totalPrice) < 250 ? 
@@ -43,13 +42,13 @@ export default function TotalInfo({totalPrice, userId, setTotalPrice}) {
                         </div>)
                         :(<div className="d-flex">
                             <h1 className="me-1" style={{fontSize:"15px"}}>Bedava</h1>
-                            <h1 style={{textDecoration: "line-through",fontSize:"18px"}}>18,99 TL</h1>
+                            <h1 style={{fontSize:"18px"}} className="text-decoration-line-through">18,99 TL</h1>
                         </div>)
                     }
                     </div>
                     <hr />
                     <div className=" mb-2 d-flex justify-content-end">
-                    <h1 style={{fontSize:"26px"}}>{totalPriceText},00 TL</h1>
+                    <h1 style={{fontSize:"26px"}}>{numberWithCommas(totalPrice)},00 TL</h1>
                     </div>
                 </div>
                 <div className="d-grid">
@@ -58,3 +57,5 @@ export default function TotalInfo({totalPrice, userId, setTotalPrice}) {
                 </div>
             </div>
     )}
+
+    900000(3*5*7)
