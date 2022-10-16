@@ -5,7 +5,7 @@ import Info from './Info';
 import Comments from './Comments';
 import {useSelector} from "react-redux"
 import { useParams } from 'react-router-dom';
-
+import ErrorPage from "./../ErrorPage";
 
 export default function Product() {
   let { id } = useParams();
@@ -19,7 +19,7 @@ export default function Product() {
   }, [])
 
   if(selectedProduct == undefined)
-    return(<h1 className='display-1 d-flex justify-content-center'>404 ERROR!</h1>);
+    return <ErrorPage/>;
 
   return(
     <div className='container-xl'>
