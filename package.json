@@ -4,7 +4,8 @@
   "description": "E-commerce responsive desing with Django (React &amp; Redux)",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && npm install && node server.js"
+    "prepare":"cd client && npm install && cd .. && cd server && npm install && cd ..",
+    "start": "cd server && node server.js"
   },
   "repository": {
     "type": "git",
