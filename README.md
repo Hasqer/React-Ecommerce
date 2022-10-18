@@ -9,3 +9,13 @@ E-commerce responsive desing with Node.js (React &amp; Redux)
 ![7](https://user-images.githubusercontent.com/87176573/196417146-f328812f-9d36-418a-960c-728caa1a2c64.png)
 ![8](https://user-images.githubusercontent.com/87176573/196417149-3502009f-3098-478f-9d90-2cebfad49d42.png)
 ![2](https://user-images.githubusercontent.com/87176573/196417154-5482444c-d05c-4442-a0a9-535f1593ae6d.png)
+
+## To prepare the project
+
+### `npm run prepare`
+
+## To start the project
+
+### `npm start`
+
+### Opens at http://localhost/
