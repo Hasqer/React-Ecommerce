@@ -1,2 +1,2 @@
 # React-Ecommerce
-E-commerce responsive desing with Django (React &amp; Redux)
+E-commerce responsive desing with Node.js (React &amp; Redux)
