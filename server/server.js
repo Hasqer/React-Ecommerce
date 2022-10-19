@@ -11,7 +11,7 @@ var cart=new Array()
 
 
 
-app.listen(80 || process.env.PORT);
+app.listen(process.env.PORT || 80);
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended : true }))
 app.use(express.static(path.join(__dirname,"..\\client\\build")));
