@@ -4,9 +4,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require("path")
 
-var cors = require('cors');
-app.use(cors({"Access-Control-Allow-Origin": "*"}));
-
 var cart=new Array()
 
 
