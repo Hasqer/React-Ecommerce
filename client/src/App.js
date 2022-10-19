@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import './global.css';
 import loading from "./loading.svg";
 
+axios.defaults.baseURL = 'https://api.example.com';
+
 function App() {
   const dis = useDispatch();
   const [load,setLoad] = useState(false);
