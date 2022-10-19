@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path")
 
 var cors = require('cors');
-app.use(cors({"Access-Control-Allow-Origin": "http://localhost"}));
+app.use(cors({"Access-Control-Allow-Origin": "*"}));
 
 var cart=new Array()
 
@@ -14,11 +14,11 @@ var cart=new Array()
 app.listen(80 || process.env.PORT);
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended : true }))
-app.use(express.static(path.join(__dirname,"..\\client\\build")));
+app.use(express.static(path.join(__dirname,"/client/build")));
 app.use(express.json());
 
 app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"..\\client\\build\\index.html"));
+    res.sendFile(path.join(__dirname,"/client/build/index.html"));
 });
 
 app.post('/register', function(request, response){
