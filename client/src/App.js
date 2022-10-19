@@ -24,7 +24,7 @@ function App() {
       dis(setUser(JSON.parse(user)));
       dis(setLogin(true));
     }
-    axios.post("/products")
+    axios.post("https://techusecommerce.herokuapp.com/products")
     .then(res =>{
       dis(getProduct(res.data.data));
       setLoad(true)
