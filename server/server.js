@@ -18,6 +18,10 @@ app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"../client/build/index.html"));
 });
 
+app.post("*",(req,res)=>{
+     res.end(JSON.stringify({status:"unsucces"}));
+});
+
 app.post('/register', function(request, response){
     
     fs.readFile(__dirname + "/userdata.json",(error,data)=>{
