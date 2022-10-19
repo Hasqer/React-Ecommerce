@@ -14,11 +14,11 @@ var cart=new Array()
 app.listen(process.env.PORT || 80 );
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended : true }))
-app.use(express.static(path.join(__dirname,"/client/build")));
+app.use(express.static(path.join(__dirname,"../client/build")));
 app.use(express.json());
 
 app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/client/build/index.html"));
+    res.sendFile(path.join(__dirname,"../client/build/index.html"));
 });
 
 app.post('/register', function(request, response){
