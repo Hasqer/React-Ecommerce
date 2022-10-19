@@ -13,8 +13,6 @@ import { useEffect, useState } from "react";
 import './global.css';
 import loading from "./loading.svg";
 
-axios.defaults.baseURL = 'https://api.example.com';
-
 function App() {
   const dis = useDispatch();
   const [load,setLoad] = useState(false);
@@ -24,7 +22,7 @@ function App() {
       dis(setUser(JSON.parse(user)));
       dis(setLogin(true));
     }
-    axios.post("https://techusecommerce.herokuapp.com/products")
+    axios.post("/products")
     .then(res =>{
       dis(getProduct(res.data.data));
       setLoad(true)
