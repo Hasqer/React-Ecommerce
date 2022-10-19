@@ -13,8 +13,6 @@ import { useEffect, useState } from "react";
 import './global.css';
 import loading from "./loading.svg";
 
-axios.defaults.baseURL = process.env.baseURL || "https://techusecommerce.herokuapp.com";
-
 function App() {
   const dis = useDispatch();
   const [load,setLoad] = useState(false);
