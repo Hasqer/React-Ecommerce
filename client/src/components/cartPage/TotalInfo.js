@@ -57,5 +57,3 @@ export default function TotalInfo({totalPrice, userId, setTotalPrice}) {
                 </div>
             </div>
     )}
-
-    900000(3*5*7)
