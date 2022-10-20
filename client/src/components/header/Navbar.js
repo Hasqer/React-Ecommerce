@@ -29,6 +29,7 @@ export default function Navbar() {
     else alert("Önce giriş yapmalısınız!");
   }
   const goHome=()=>{
+    dis(setSearch(""));
     navigate("/");
   }
   return (
@@ -44,22 +45,22 @@ export default function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
               <li className="nav-item"><a href="/#Kulaklık" className="text-decoration-none ">
                 <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
-                  Kulaklıklar
+                  Kulaklık
                 </div></a>
               </li>
               <li className="nav-item"><a href="/#Klavye" className="text-decoration-none">
                 <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
-                  Klavyeler
+                  Klavye
                 </div></a>
               </li>
               <li className="nav-item"><a href="/#Monitör" className="text-decoration-none">
                 <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
-                Monitörler
+                Monitör
                 </div></a>
               </li>
               <li className="nav-item"><a href="/#Mouse" className="text-decoration-none">
                 <div className={style.navbuttons+" nav-link center crs-pointer text-white"} aria-current="page">
-                  Fareler
+                  Mouse
                 </div></a>
               </li>
               
@@ -67,8 +68,8 @@ export default function Navbar() {
             <div className="d-flex" role="search">
               <input 
               value={searchValue} 
-              onChange={(e)=>dis(setSearch(e.target.value))}
-              className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              onChange={(e)=>{dis(setSearch(e.target.value)) && (window.location.pathname != "/" && navigate("/"))}}
+              className="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search"/>
             </div>
             
           </div>

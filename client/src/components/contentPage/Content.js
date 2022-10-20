@@ -12,7 +12,7 @@ export default function Content() {
   });
   return (
     <div className='container-xxl'>
-      {search.length <= 0 && <div id="carouselExampleIndicators" className="carousel carousel-dark slide" data-bs-ride="true">
+      {search.length <= 0 && <div id="carouselExampleIndicators" className="carousel carousel slide" data-bs-ride="true">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -20,13 +20,13 @@ export default function Content() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={sliderImages[0]} alt="" className="d-block w-100"/>
+            <a href="/urunler/2"><img src={sliderImages[0]} alt="" className="d-block w-100"/></a> 
           </div>
           <div className="carousel-item">
-            <img src={sliderImages[1]} alt="" className="d-block w-100"/>
+          <a href="/urunler/22"><img src={sliderImages[1]} alt="" className="d-block w-100"/></a> 
           </div>
           <div className="carousel-item">
-            <img src={sliderImages[2]} alt="" className="d-block w-100"/>
+          <a href="/urunler/7"><img src={sliderImages[2]} alt="" className="d-block w-100"/></a> 
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

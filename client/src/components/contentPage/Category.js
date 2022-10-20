@@ -27,6 +27,7 @@ export default function Category({data}) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
   const addcart=(e)=>{
+    e.target.style["pointer-events"] = "none";
     e.stopPropagation();
     if(loginData){
       if(filter == false){
@@ -57,7 +58,7 @@ export default function Category({data}) {
       
       <div className={style.buyBtn}>
         <div className={style.btnPrice+" fw-bolder fs-4 m-2 text-color1"}>{numberWithCommas(data.price)+" TL"}</div>
-        <div className={"btn btn-"+(filter==true?"danger":"primary")+" center"} onMouseDown={addcart}>
+        <div className={"btn btn-"+(filter==true?"danger":"primary")+" center"} style={{pointerEvents : filter == true && "none"}} onMouseDown={addcart}>
           <i className="bi bi-cart me-2"></i>{filter == true ? "Sepette Mevcut":"Sepete Ekle"} </div>
       </div>
     </div>  
