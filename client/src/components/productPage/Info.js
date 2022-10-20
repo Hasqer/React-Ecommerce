@@ -20,7 +20,8 @@ export default function Info({selectedProduct, userId}) {
   },[userdata])
 
 
-  const addCart=()=>{
+  const addCart=(e)=>{
+    e.target.style["pointer-events"] = "none";
     if(loginData){
       if(filter == false){
         axios.post("/addcart",{
@@ -59,7 +60,7 @@ export default function Info({selectedProduct, userId}) {
         </div>
         
         <div className={style.detailBox}>
-          <div className={"btn btn-"+(filter==true?"danger":"primary")+" center"} onMouseDown={addCart}>
+          <div className={" btn btn-" + (filter == true ? "danger":"primary")+" center "} style={{pointerEvents : filter == true && "none"}} onMouseDown={addCart}>
             <i className="bi bi-cart me-2"></i>{filter == true ? "Sepette Mevcut":"Sepete Ekle"} 
           </div>
         </div>
